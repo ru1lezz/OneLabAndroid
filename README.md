@@ -9,6 +9,7 @@
 - Разберем что такое Handler, Looper, MessageQueue и как они связаны с главным потоком
 - Корутины, Flow
 - Взаимодействие с сетью и работа с базами данных
+- Dependency Injection с Dagger Hilt
 - Clean Architecture и MVVM
 - Затронем базовые вещи Jetpack Compose
 - Работа с Git

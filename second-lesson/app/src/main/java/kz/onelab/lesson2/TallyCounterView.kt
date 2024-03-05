@@ -2,6 +2,7 @@ package kz.onelab.lesson2
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.text.TextPaint
@@ -31,29 +32,28 @@ class TallyCounterView @JvmOverloads constructor(
     private var displayedCount = ""
     private var lastTouchX: Float = 0f
     private var lastTouchY: Float = 0f
+    private var customTextColor: Int = Color.BLACK
 
     private var gestureDetector: GestureDetector
 
     init {
-        // Set up points for canvas drawing.
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TallyCounterView, defStyleAttr, 0)
+        count = typedArray.getInteger(R.styleable.TallyCounterView_count, 0)
+        setCount(count)
+        customTextColor = typedArray.getColor(R.styleable.TallyCounterView_textColor, Color.BLACK)
+        typedArray.recycle()
 
         // Set up points for canvas drawing.
         backgroundPaint.color = ContextCompat.getColor(context, R.color.purple)
         linePaint.color = ContextCompat.getColor(context, R.color.black)
         linePaint.strokeWidth = 1f
-        numberPaint.color = ContextCompat.getColor(context, R.color.white)
-        // Set the number text size to be 64sp.
-        // Translate 64sp
+        numberPaint.color = customTextColor
         // Set the number text size to be 64sp.
         // Translate 64sp
         numberPaint.textSize = 64.sp.toFloat()
 
         // Allocate objects needed for canvas drawing here.
-
-        // Allocate objects needed for canvas drawing here.
         backgroundRect = RectF()
-
-        // Initialize drawing measurements.
 
         // Initialize drawing measurements.
         cornerRadius = (2f * resources.displayMetrics.density)
@@ -64,8 +64,6 @@ class TallyCounterView @JvmOverloads constructor(
             }
 
         })
-        // Do initial count setup.
-        setCount(0)
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -102,31 +100,25 @@ class TallyCounterView @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val fontMetrics = numberPaint.fontMetrics
 
-        // Measure maximum possible width of text.
 
         // Measure maximum possible width of text.
         val maxTextWidth = numberPaint.measureText(MAX_COUNT_STRING)
         // Estimate maximum possible height of text.
-        // Estimate maximum possible height of text.
         val maxTextHeight = -fontMetrics.top + fontMetrics.bottom
 
-        // Add padding to maximum width calculation.
 
         // Add padding to maximum width calculation.
         val desiredWidth = Math.round(maxTextWidth + paddingLeft + paddingRight)
 
-        // Add padding to maximum height calculation.
 
         // Add padding to maximum height calculation.
         val desiredHeight = Math.round(maxTextHeight * 2f + paddingTop + paddingBottom)
 
-        // Reconcile size that this view wants to be with the size the parent will let it be.
 
         // Reconcile size that this view wants to be with the size the parent will let it be.
         val measureWidth: Int = reconcileSize(desiredWidth, widthMeasureSpec)
         val measuredHeight: Int = reconcileSize(desiredHeight, heightMeasureSpec)
 
-        // Store the final measured dimensions.
 
         // Store the final measured dimensions.
         setMeasuredDimension(measuredWidth, measuredHeight)

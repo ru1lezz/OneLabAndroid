@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TallyCounterView">
+        <attr name="count" format="integer" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+</resources>

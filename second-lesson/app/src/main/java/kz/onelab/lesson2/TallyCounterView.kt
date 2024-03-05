@@ -116,7 +116,7 @@ class TallyCounterView @JvmOverloads constructor(
 
 
         // Reconcile size that this view wants to be with the size the parent will let it be.
-        val measureWidth: Int = reconcileSize(desiredWidth, widthMeasureSpec)
+        val measuredWidth: Int = reconcileSize(desiredWidth, widthMeasureSpec)
         val measuredHeight: Int = reconcileSize(desiredHeight, heightMeasureSpec)
 
 

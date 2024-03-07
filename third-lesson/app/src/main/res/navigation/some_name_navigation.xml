@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/some_name_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="kz.onelab.third_lesson.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentOne"
+            app:destination="@id/fragmentOne" />
+        <action
+            android:id="@+id/action_mainFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_withReturnResultFragment"
+            app:destination="@id/withReturnResultFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentOne"
+        android:name="kz.onelab.third_lesson.FragmentOne"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one" >
+        <action
+            android:id="@+id/action_fragmentOne_to_fragmentSecond"
+            app:destination="@id/fragmentSecond" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSecond"
+        android:name="kz.onelab.third_lesson.FragmentSecond"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <argument
+            android:name="arg_some_data"
+            app:argType="string" />
+<!--        <argument-->
+<!--            android:name="item_list"-->
+<!--            app:argType="kz.onelab.third_lesson.ListItem"-->
+<!--            app:nullable="true" />-->
+        <action
+            android:id="@+id/action_fragmentSecond_pop"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/withReturnResultFragment"
+        android:name="kz.onelab.third_lesson.WithReturnResultFragment"
+        android:label="WithReturnResultFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="kz.onelab.third_lesson.ListFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_list" />
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="kz.onelab.third_lesson.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" />
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="kz.onelab.third_lesson.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
+</navigation>

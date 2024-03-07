@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:weightSum="3"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/text_view"
         android:background="#FFA500"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="2"
         android:textSize="36sp"
         tools:text="Какой то текст"/>
@@ -19,10 +19,10 @@
     <TextView
         android:id="@+id/text_view_2"
         android:background="#008000"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
+        android:gravity="bottom|center"
         android:textSize="36sp"
         tools:text="Второй текст"/>
 

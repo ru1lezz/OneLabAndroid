@@ -62,7 +62,6 @@ class TallyCounterView @JvmOverloads constructor(
                 decrement()
                 return super.onDoubleTap(e)
             }
-
         })
     }
 
@@ -86,8 +85,6 @@ class TallyCounterView @JvmOverloads constructor(
         // Draw baseline.
         val baselineY = Math.round(canvasHeight * 0.6f).toFloat()
         canvas.drawLine(0f, baselineY, canvasWidth.toFloat(), baselineY, linePaint)
-
-        // Draw text.
 
         // Measure the width of text to display.
         val textWidth = numberPaint.measureText(displayedCount)

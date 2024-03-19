@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace = "kz.onelab.seventh_lesson"
+    namespace = "kz.onelab.eighth_lesson"
     compileSdk = 34
 
     val apikeyPropertiesFile = rootProject.file("apikey.properties")

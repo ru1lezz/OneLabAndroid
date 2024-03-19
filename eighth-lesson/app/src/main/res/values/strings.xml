@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">eighth-lesson</string>
+    <string name="movie_update_cache_channel_name">Update movie cache</string>
+    <string name="movie_cache_update">Movie Cache Update</string>
+    <string name="cache_update_time_descr">Обновляет кэш каждые 2 часа</string>
+</resources>
